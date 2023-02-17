@@ -8,26 +8,26 @@ class Calculator {
 
   // Methods
   public function add($num1, $num2) {
-    return $num1 + $num2;
+    return (float)$num1 + (float)$num2;
   }
 
   public function subtract($num1, $num2) {
-    return $num1 - $num2;
+    return (float)$num1 - (float)$num2;
   }
 
   public function multiply($num1, $num2) {
-    return $num1 * $num2;
+    return (float)$num1 * (float)$num2;
   }
 
   public function divide($num1, $num2) {
-    if ($num1 == 0 || $num2 == 0) {
+    if ((float)$num1 == 0 || (float)$num2 == 0) {
       throw new Exception("Division by zero");
     }
-    return $num1 / $num2;
+    return (float)$num1 / (float)$num2;
   }
 
   public function percent($num1, $num2) {
-    return ($num1 * $num2) / 100;
+    return ((float)$num1 * (float)$num2) / 100;
   }
 
 }
