@@ -1,34 +1,37 @@
 <?php
 include 'classes/Calculator.php';
 $title = 'Simple PHP Calculator';
+$result = 0;
+
 
 if (isset($_POST['submit'])) {
   $num1 = $_POST['num1'];
   $num2 = $_POST['num2'];
   $operator = $_POST['operator'];
-}
-$calculator = new Calculator();
 
-switch ($operator) {
-  case 'plus':
-    $result = $calculator->add($num1, $num2);
-    break;
-  case 'minus':
-    $result = $calculator->subtract($num1, $num2);
-    break;
-  case 'multiply':
-    $result = $calculator->multiply($num1, $num2);
-    break;
-  case 'divide':
-    try {
-      $result = $calculator->divide($num1, $num2);
-    } catch (Exception $e) {
-      $result = "Unable to divide.";
-    }
-    break;
-  case 'percent':
-    $result = $calculator->percent($num1, $num2);
-    break;
+  $calculator = new Calculator();
+
+  switch ($operator) {
+    case 'plus':
+      $result = $calculator->add($num1, $num2);
+      break;
+    case 'minus':
+      $result = $calculator->subtract($num1, $num2);
+      break;
+    case 'multiply':
+      $result = $calculator->multiply($num1, $num2);
+      break;
+    case 'divide':
+      try {
+        $result = $calculator->divide($num1, $num2);
+      } catch (Exception $e) {
+        $result = "Unable to divide.";
+      }
+      break;
+    case 'percent':
+      $result = $calculator->percent($num1, $num2);
+      break;
+  }
 }
 
 ?>
@@ -45,13 +48,15 @@ switch ($operator) {
 </head>
 <body>
 
+<div class="container-sm">
+
 <!--Calculator Form-->
-<h2>Calculator</h2>
+<h2>Simple PHP Calculator</h2>
 <form action="calculator.php" method="post" class="row gx-3 gy-2 align-items-center">
     <div class="col-sm-3">
       <input type="text" class="form-control" name="num1" placeholder="first number">
     </div>
-    <div class="col-sm">
+    <div class="col-sm-2">
       <select class="form-select" name="operator">
         <option value="plus">PLUS</option>
         <option value="minus">MINUS</option>
@@ -70,7 +75,8 @@ switch ($operator) {
 <br>
 <div>
 <p class="fs-2">Result: <?= $result; ?></p>
-</div>  
+</div> 
+</div> 
 
 
 </body>
