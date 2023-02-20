@@ -11,3 +11,5 @@ Functionality:
 
 Form is created with Bootstrap 5.0
 Calcultaror is a Class and calculator object is created in a separate file.
+
+Live preview: https://sw-products.000webhostapp.com/calculator/
